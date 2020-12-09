@@ -49,4 +49,36 @@ class Student(UniversityPerson):
         self.courses = []
         self.grades = []
 
+    def Information(self):
+        print( "Your identification number is: " + self.id_number())
+        print( "Your school email is: " + self.school_email ()) #Calling directly from attribute - should do something about this if
+        #attribute changes
+        course_list = []
+        for course in self.courses:
+            course_list.append(course.name)
+        print("The list of your courses are: " .join(course_list))
+
+        for i, course in enumerate(course_list):
+            print("Your assignments and greades for " + course + " are: ")
+            #cycling through the list of courses 
+            if self.courses[i].assignments != [] #ensure that assignments is presented
+                for assignment, grade in zip(self.courses[i].assignments, self.grades):
+                    print(assignment.name + " - " + str(grade.grade.getGrade()))
+            else: 
+                print("No assignments are provided in this course")
+
+class Courses: 
+    def __init__(self, name, id_number, units, teacher): #Teacher will be attribute, professor class
+        self.name = name
+        self.id_number = id_number
+        self.units = units
+        self.teacher = teacher
+        self.assignments = []
+
+    
+
+
+
+
+
     
