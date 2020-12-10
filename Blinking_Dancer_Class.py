@@ -1,4 +1,5 @@
-#
+
+
 class UniversityPerson():
     def __init__(self, name, age, year_started, field):
         self.name = name
@@ -90,6 +91,22 @@ class TAs:
         else:
             return ("Improve your grades before you TA")
 
+#Composition
+class NewCourses:
+    def __init__(self, future_year, have_professor, timing, academic_standing):
+        self.future_year = future_year
+        self.have_professor = have_professor
+        self.object_TAs = TAs(timing, academic_standing)
+    
+    def NewClass(self):
+        if ((self.future_year > 2020) and (self.have_professor == "Yes")):
+            return ("This can possibly be a course provided in the future")
+        else:
+            return("There is still more to process")
+
+    def HaveTA(self):
+        self.object_TAs.Timing() and self.object_TAs.Academics()
+
 #Composition 
 
 class MakeSchoolProfessor(UniversityPerson):
@@ -130,9 +147,9 @@ Test3 = TAs(2, "Good")
 print(Test3.Timing())
 print(Test3.Academics())
 
+Test5 = NewCourses(2022, "Yes", 2, "Good")
+print(Test5.HaveTA())
+
 Test4 = MakeSchoolProfessor("Johan", 48, 2010, "BEW", 35, "Yes", 1, "Yes")
-print(Test4.professorHaveTA())
 print(Test4.retirement())
 print(Test4.salary())
-
-
