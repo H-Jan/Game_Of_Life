@@ -124,5 +124,5 @@ class Grading:
 
 
 
-
+print(UniversityPerson(Hani, Jandali, hanijandali@makeschool.com, LalaLAnd, 93920203))
     
